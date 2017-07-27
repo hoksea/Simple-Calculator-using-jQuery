@@ -5,23 +5,6 @@ function getNum(num) {
     });
 }
 
-//. btn
-function dot(d) {
-
-    var boxRes = $("#showResBox").val();
-    var lastSym = boxRes.substr(boxRes.length - 1); //get the last value of the string
-    
-    //avoid duplicating more than one . together
-    if(lastSym == "."){
-        $("#showResBox").val();
-    }else{
-        $("#showResBox").val(function(i,val){
-        return val + d 
-        });
-    }
-
-}
-
 //C btn
 function clearRes() {
     $("#showResBox").val("");
@@ -50,7 +33,7 @@ function cal(calSymbol) {
     if($("#showResBox").val()==""){
         $("#showResBox").val("");
     //avoid duplicating the symbol +-*/ together    
-    }else if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/"){
+    }else if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/" || lastSym == "."){
         $("#showResBox").val();
     }else{
         $("#showResBox").val(function(i,val){
