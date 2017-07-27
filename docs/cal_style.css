@@ -2,6 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Gruppo"); 
 @import url("https://fonts.googleapis.com/css?family=Bubbler+One");
 
+*{
+  -webkit-appearance: none;
+}
+
 body {
   background-color: #c2ddd8;
 }
