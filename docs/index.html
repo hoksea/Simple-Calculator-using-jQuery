@@ -1,80 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" /> 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Megrim">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gruppo">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bubbler+One">
-   
+    <meta charset="utf-8" /> 
+    
+    <!-- jQuery -->
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     
-    <style>
-        
-        body{
-            background-color: #c2ddd8;
-        }
-        
-        #all{
-            margin: auto;
-            width: 60%;
-        }
-        
-        input[type=button]{
-            background-color: #ee5757;
-            color: #FFFFFF;
-            font-size: 15px;
-            font-family: Bubbler One, sans-serif;
-            width:30px;
-            height:30px;
-            border:none;
-            border-radius:12px;
-            margin:5px 5px;
-            cursor:pointer;
-            box-shadow: 0 2px #999;
-        }
-        
-        input[type=button]:hover {
-            background-color:#50e2e2;
-        }
-        
-        input[type=button]:active {
-            transform: translateY(2px);
-        }
-        
-        input[type=text]{
-            width: 118px;
-            height: 20px;
-            font-size: 20px;
-            color: #9b9999;
-            font-family: Gruppo, Courier New, sans-serif;
-            border-radius:5px;
-            padding: 3px 3px;
-        }
-        
-        form{
-            border: 1px solid #eaeaea;
-            background-color: #ffffff;
-            width:212px;
-            height:280px;
-            border-radius:18px;
-            box-shadow: 5px 5px 5px #d3cdcd;
-            margin: auto;
-   
-        }
-        
-        #calContent{
-            margin: 20px 20px;
-        }
-        
-        h1{
-            margin-top: 50px;
-            color: #fffef2;
-            font-family: Megrim , Impact, sans-serif;
-            font-size: 50px;
-            text-align: center;
-        }
-        
-    </style>
+    <!--js alert box css  downloaded from http://alertifyjs.com/guide.html  http://fabien-d.github.io/alertify.js/-->
+    <link type="text/css" rel="stylesheet" href="alertify.min.css">
+    <script type="text/javascript" src="alertify.min.js"></script>
+    
+    <!--mine-->
+    <link type="text/css" rel="stylesheet" href="cal_style.css">
+    <script type="text/javascript" src="cal.js"></script>
 </head>
 
 <body>
@@ -110,76 +48,11 @@
             <br/>
 
             <input style="width: 74px;" type="button" value="0" onClick="getNum('0')">
-            <input type="button" value="." onClick="getNum('.')">
+            <input type="button" value="." onClick="dot('.')">
             <input type="button" value="=" onClick="equal()">
         </div>
     </form>
 </div>
+
 </body>
-
-
-
-<script type="text/javascript">
-    
-    //0-9 number btn
-    function getNum(num) {
-        $("#showResBox").val(function(i,val){
-           return val + num 
-        });
-    }
-    
-    //C btn
-    function clearRes() {
-        $("#showResBox").val("");
-    }
-
-    //equal btn
-    function equal() {
-        $("#showResBox").val(eval($("#showResBox").val()));
-    }
-
-    //+ * / btn
-    function cal(calSymbol) {
-        
-        var boxRes = $("#showResBox").val();
-        var lastSym = boxRes.substr(boxRes.length - 1); //get the last character value
-        
-        //need to press a number first before pressing +*/
-        if($("#showResBox").val()==""){
-            $("#showResBox").val("");
-        //avoid duplicating the symbol +-*/ together AND the last character should not be +-*/
-        }else if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/"){
-            $("#showResBox").val();
-        }else{
-            $("#showResBox").val(function(i,val){
-                return val + calSymbol
-            });
-        }
-    }
-    
-    //- btn. - can be put before number to be a negative value, so separate it from +*/
-    function minus(minuss) {
-        
-        var boxRes = $("#showResBox").val();
-        var lastSym = boxRes.substr(boxRes.length - 1); //get the last charactre value
-        
-        if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/"){
-            $("#showResBox").val();
-        }else{
-            $("#showResBox").val(function(i,val){
-                return val + minuss
-            });
-        }
-    }
-    
-    //del btn
-    function del(){
-        $("#showResBox").val(function(i, val){
-            return val.substr(0, val.length - 1) //get the first to the second last value
-        });
-    }
-
-    
-</script>
-
 </html>
