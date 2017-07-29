@@ -165,7 +165,7 @@ function cal(calSymbol) {
     //need to press a number first before pressing +-*/.
     if($("#showResBox").val()==""){
         $("#showResBox").val("");
-    //avoid duplicating the symbol +-*/ together    
+    //avoid duplicating the symbol +-*/. together    
     }else if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/" || lastSym == "."){
         $("#showResBox").val();
     }else{
@@ -180,8 +180,8 @@ function minus(minuss) {
 
     var boxRes = $("#showResBox").val();
     var lastSym = boxRes.substr(boxRes.length - 1); //get the last value of the string
-    //avoid duplicating the symbol +-*/ together 
-    if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/"){
+    //avoid duplicating the symbol +-*/. together 
+    if(lastSym == "+" || lastSym == "-" || lastSym == "*" || lastSym == "/" || lastSym == "."){
         $("#showResBox").val();
     }else{
         $("#showResBox").val(function(i,val){
